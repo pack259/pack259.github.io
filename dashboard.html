@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Derby Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap wide">
+  <header>
+    <div>
+      <h1 id="event">Pinewood Derby Dashboard</h1>
+      <div class="meta"><span id="updated">Loading...</span> &middot; <a href="c.html">Check-in page</a></div>
+    </div>
+    <button type="button" class="linkbtn" id="signOutBtn">Change station code / sign out</button>
+  </header>
+
+  <div class="card hidden" id="codeCard" style="max-width:520px">
+    <h2>Enter the station code</h2>
+    <form id="codeForm" autocomplete="off">
+      <label for="codeInput">Station code</label>
+      <input type="password" id="codeInput" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+      <div id="codeErr" class="err hidden" style="margin-top:10px"></div>
+      <button class="btn" type="submit" id="codeBtn">Save code</button>
+    </form>
+  </div>
+
+  <div id="main" class="hidden">
+    <div class="card">
+      <div class="row" style="align-items:center; flex-wrap:wrap">
+        <div><span class="big" id="totalIn">0</span> <span class="muted" id="totalOf">of 0 checked in</span></div>
+        <div style="flex:0 0 auto; min-width:260px">
+          <button type="button" class="btn" id="exportBtn" style="margin-top:0">Export CSV</button>
+        </div>
+      </div>
+      <div class="export-note">Import this file directly into Race Manager. Do not open or save it in Excel.</div>
+      <div class="export-note" id="exportResult"></div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Checked in by rank</h2>
+        <table id="countsTable"><thead><tr><th>Rank</th><th>Checked in</th><th>Passed</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="card">
+        <h2>Not passed</h2>
+        <div id="notPassed"></div>
+      </div>
+      <div class="card">
+        <h2>Not yet checked in</h2>
+        <div id="notIn"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Derby Check-in</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="event">Pinewood Derby Check-in</h1>
+      <div class="meta"><span id="stationLabel"></span> &middot; <a href="dashboard.html">Dashboard</a></div>
+    </div>
+    <button type="button" class="linkbtn" id="signOutBtn">Change station code / sign out</button>
+  </header>
+
+  <!-- station code prompt -->
+  <div class="card hidden" id="codeCard">
+    <div id="codeCarNo" class="carno hidden"></div>
+    <h2>Enter the station code</h2>
+    <p class="hint" style="margin-top:0">Ask the derby coordinator for the code. This device remembers it.</p>
+    <form id="codeForm" autocomplete="off">
+      <label for="codeInput">Station code</label>
+      <input type="password" id="codeInput" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+      <label for="stationInput">Station name</label>
+      <input type="text" id="stationInput" placeholder="e.g. Laptop, Table 2, Phone - Sam" maxlength="40">
+      <div id="codeErr" class="err hidden" style="margin-top:10px"></div>
+      <button class="btn" type="submit" id="codeBtn">Save code</button>
+    </form>
+  </div>
+
+  <!-- scan box -->
+  <div class="card scan hidden" id="scanCard">
+    <form id="scanForm" autocomplete="off">
+      <label for="scanInput">Scan or type a car number</label>
+      <div class="row">
+        <input type="search" id="scanInput" inputmode="numeric" placeholder="042" enterkeyhint="go" autocapitalize="off" autocorrect="off" spellcheck="false">
+      </div>
+    </form>
+    <button type="button" class="btn secondary" id="cameraBtn">Scan next car with camera</button>
+  </div>
+
+  <div id="msg"></div>
+
+  <!-- car -->
+  <div class="card hidden" id="carCard">
+    <div class="row" style="align-items:center">
+      <div class="carno" id="carNo"></div>
+      <div style="text-align:right"><span class="badge" id="carRank"></span></div>
+    </div>
+    <div id="carBody"></div>
+  </div>
+</div>
+
+<!-- camera overlay -->
+<div id="camera" class="hidden">
+  <div class="reader"><div id="reader"></div></div>
+  <div class="bar">
+    <p id="cameraMsg">Point the camera at the QR code on the bottom of the car.</p>
+    <button type="button" class="btn secondary" id="cameraCancel">Cancel</button>
+  </div>
+</div>
+
+<script src="common.js"></script>
+<script src="checkin.js"></script>
+</body>
+</html>
