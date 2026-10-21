@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f4e9c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Attendance">
+<title>Pack 259 Attendance</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Pack 259 Attendance</h1>
+    <div class="meta" id="who"></div>
+  </div>
+  <button type="button" class="sync" id="sync"></button>
+</header>
+
+<main class="wrap">
+  <!-- sign in -->
+  <section class="card hidden" id="codeCard">
+    <h2>Sign in</h2>
+    <p class="hint">Ask the Committee Chair or Cubmaster for the leader code. This phone remembers it.</p>
+    <form id="codeForm" autocomplete="off">
+      <label for="codeInput">Leader code</label>
+      <input type="password" id="codeInput" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+      <label for="nameInput">Your name</label>
+      <input type="text" id="nameInput" placeholder="Jane Smith" maxlength="40" autocomplete="name" required>
+      <p class="hint">Your name goes in the Sheet next to the attendance you take.</p>
+      <div id="codeErr" class="err hidden"></div>
+      <button class="btn" type="submit" id="codeBtn">Sign in</button>
+    </form>
+  </section>
+
+  <!-- attendance -->
+  <section class="hidden" id="mainCard">
+    <div class="controls card">
+      <label for="groupSel">Den</label>
+      <select id="groupSel"></select>
+      <div class="two">
+        <div>
+          <label for="dateInput">Date</label>
+          <input type="date" id="dateInput">
+        </div>
+        <div>
+          <label for="eventSel">Event</label>
+          <select id="eventSel"></select>
+        </div>
+      </div>
+      <input type="text" id="otherInput" class="hidden" placeholder="Name of the event" maxlength="60" aria-label="Name of the event">
+    </div>
+
+    <div id="msg"></div>
+
+    <div id="listArea" class="hidden">
+      <div class="countbar">
+        <span id="count"></span>
+        <span class="hint">Tap a name to mark it here.</span>
+      </div>
+      <input type="search" id="search" class="hidden" placeholder="Find a scout" aria-label="Find a scout" autocomplete="off">
+      <div id="list"></div>
+
+      <button type="button" class="btn secondary" id="addBtn">Add a scout who isn't listed</button>
+      <form class="card hidden" id="addForm" autocomplete="off">
+        <h2>Add a scout</h2>
+        <p class="hint">Use this for a new scout or a visitor. They are marked here and added to this den's list.</p>
+        <div class="two">
+          <div>
+            <label for="addFirst">First name</label>
+            <input type="text" id="addFirst" maxlength="30" autocapitalize="words" required>
+          </div>
+          <div>
+            <label for="addLast">Last name</label>
+            <input type="text" id="addLast" maxlength="30" autocapitalize="words" required>
+          </div>
+        </div>
+        <div id="addDenWrap" class="hidden">
+          <label for="addDen">Den</label>
+          <select id="addDen"></select>
+        </div>
+        <div id="addErr" class="err hidden"></div>
+        <div class="two">
+          <button type="button" class="btn secondary" id="addCancel">Cancel</button>
+          <button type="submit" class="btn">Add</button>
+        </div>
+      </form>
+    </div>
+
+    <footer class="foot">
+      <button type="button" class="linkbtn" id="signOutBtn">Sign out</button>
+      <a href="roster.html">Update the roster</a>
+    </footer>
+  </section>
+</main>
+
+<script src="common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

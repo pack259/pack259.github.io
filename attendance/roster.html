@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f4e9c">
+<title>Pack 259 Attendance Roster</title>
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Update the roster</h1>
+    <div class="meta"><a href="./">Back to attendance</a></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- roster code -->
+  <section class="card hidden" id="codeCard">
+    <h2>Enter the roster code</h2>
+    <p class="hint">The roster code is in the Config tab of the Pack 259 Attendance Sheet. The leader code does not work here.</p>
+    <form id="codeForm" autocomplete="off">
+      <label for="codeInput">Roster code</label>
+      <input type="password" id="codeInput" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+      <div id="codeErr" class="err hidden"></div>
+      <button class="btn" type="submit" id="codeBtn">Continue</button>
+    </form>
+  </section>
+
+  <!-- choose file -->
+  <section class="card hidden" id="fileCard">
+    <h2>Upload the Scoutbook roster</h2>
+    <ol class="steps">
+      <li>In Scoutbook, download the pack roster as a CSV file (the roster report that lists youth members with their den).</li>
+      <li>Choose that file here. Only each scout's name and den are sent to the Sheet. Addresses, phone numbers and parent names stay on this device.</li>
+      <li>Check the changes it lists, then press <b>Update the roster</b>.</li>
+    </ol>
+    <input type="file" id="fileInput" accept=".csv,text/csv">
+    <div id="fileErr" class="err hidden"></div>
+    <p class="hint" style="margin-top:12px"><button type="button" class="linkbtn" id="signOutBtn">Forget the roster code on this device</button></p>
+  </section>
+
+  <div id="msg"></div>
+
+  <!-- changes -->
+  <section class="card changes hidden" id="checkCard">
+    <h2 id="checkTitle">Changes</h2>
+    <div id="checkBody"></div>
+    <button type="button" class="btn" id="applyBtn">Update the roster</button>
+  </section>
+</main>
+
+<script src="common.js"></script>
+<script src="roster.js"></script>
+</body>
+</html>
